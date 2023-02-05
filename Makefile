@@ -1,59 +1,68 @@
-#SETUP
-PUSH_SWAP	=	push_swap
-CHECKER		=	checker
-CC			=	gcc
-FLAGS		=	-Wall -Wextra -Werror
-RM			=	rm -rf
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: hahadiou <hahadiou@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/02/03 15:11:30 by hahadiou          #+#    #+#              #
+#    Updated: 2023/02/05 23:39:24 by hahadiou         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
-#FILES AND PATH
-SRCS_FILES	=	push_swap.c push.c swap.c rotate.c error.c\
-				checks.c positions.c creating.c markup_head.c\
-				markup.c solve_a.c solve_b.c\
-				align.c free.c d_rotate.c moves.c index.c need.c
 
-SRCS_DIR	=	src/
-SRCS		=	$(addprefix $(SRCS_DIR), $(SRCS_FILES))
-OBJ			=	$(SRCS:.c=.o)
+CC		= cc
+FLAGS	= -Wall -Wextra -Werror
 
-FUNC_FILES	=	ft_atoi.c ft_lstadd_back.c ft_lstadd_front.c\
-				ft_lstake_first.c ft_lstake_last.c ft_lstnew.c\
-				ft_lstlen.c ft_sort.c ft_strcmp.c
-FUNC_DIR	=	libft/
-FUNC 		=	$(addprefix $(FUNC_DIR), $(FUNC_FILES))
-OBJ_F		=	$(FUNC:.c=.o)
+NAME	= push_swap
 
-HEADERS		=	inc/push_swap.h 
+INC	= inc
+LIBFT_PATH	= libft
+SRC_PATH	= src
+OBJ_PATH	= obj
 
-#COMMANDS
-%.o: %.c $(HEADERS) Makefile
-				@${CC} ${FLAGS} -c $< -o $@
+SRCS = push_swap.c \
+		check.c \
+		#init.c \
+		index.c \
+		push.c \
 
-$(PUSH_SWAP):	$(OBJ) $(OBJ_F)
-				@$(CC) $(OBJ) $(OBJ_F) -o $(PUSH_SWAP)
-				@echo -e "$(GREEN)$(PUSH_SWAP) created!$(DEFAULT)"
+SRC		= $(addprefix $(SRC_PATH)/,$(SRCS))
+OBJ		= $(addprefix $(OBJ_PATH)/,$(SRCS:.c=.o))
 
-all:			$(PUSH_SWAP)
+NOC		= \033[0m
+RED		= \033[1;31m
+GREEN	= \033[1;32m
+YELLOW	= \033[1;33m
+BLUE	= \033[1;34m
+WHITE	= \033[1;37m
 
-bonus:			all $(OBJ_B)
-				@$(CC) $(OBJ_B) $(OBJ_F) -o $(CHECKER)
-				@echo -e "$(GREEN)$(CHECKER) created!$(DEFAULT)"
+all: $(NAME)
+
+
+$(NAME): $(OBJ)
+	@echo "$(YELLOW)Compiling Libft...$(NOC)"
+	@make -sC $(LIBFT_PATH)
+	@echo "$(YELLOW)Compiling Push_Swap...$(NOC)"
+	@$(CC) $(FLAGS) -L $(LIBFT_PATH) -o $@ $^ -lft
+	@echo "$(GREEN)$@$(NOC)"
+
+$(OBJ_PATH)/%.o: $(SRC_PATH)/%.c $(INC)/$(NAME).h
+	@mkdir -p obj
+	@$(CC) $(FLAGS) -I$(INC) -c -o $@ $<
+
 clean:
-				@$(RM) $(OBJ)
-				@$(RM) $(OBJ_F)
-				@$(RM) $(OBJ_B)
-				@echo -e "$(YELLOW)object files deleted!$(DEFAULT)"
+	@echo "$(RED)clean$(NOC)"
+	@make clean -sC $(LIBFT_PATH)
+	@rm -rf $(OBJ_PATH)
+	@rm -rf $(OBJB_PATH)
 
-fclean:			clean
-				@$(RM) $(PUSH_SWAP)
-				@$(RM) $(CHECKER)
-				@echo -e "$(RED)all deleted!$(DEFAULT)"
+fclean: clean
+	@echo "$(RED)fclean$(NOC)"
+	@make fclean -sC $(LIBFT_PATH)
+	@rm -f $(NAME) ${NAMEB}
 
-re:				fclean all bonus
+re: fclean all
 
-.PHONY:		all bonus clean fclean re
 
-#COLORS
-RED = \033[1;31m
-GREEN = \033[1;32m
-YELLOW = \033[1;33m
-DEFAULT = \033[0m
+.PHONY:	all clean fclean re

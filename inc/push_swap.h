@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bcaffere <bcaffere@student.21-school.ru    +#+  +:+       +#+        */
+/*   By: hahadiou <hahadiou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/03 19:18:21 by bcaffere          #+#    #+#             */
-/*   Updated: 2021/10/16 18:40:19 by bcaffere         ###   ########.fr       */
+/*   Updated: 2023/02/05 22:35:36 by hahadiou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,118 +15,45 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+#include <limits.h>
+#include <string.h>
+#include <ctype.h>
+#include <stdio.h>
 
 typedef struct s_list t_list;
 
 struct s_list
 {
-	int				value;
+	int				data;
 	int				index;
-	int				head;
-	int				tag;
 	struct s_list	*next;
 };
 
-typedef struct s_max
-{
-	int	index;
-	int	len;
-	int	current;
-}t_max;
+		/*	INSTRUCTIONS	*/
+void	pa(t_list **stack_a, t_list **stack_b);
+void	pb(t_list **stack_a, t_list **stack_b);
+void	ra(t_list **stack_a);
+void	rb(t_list **stack_b);
+void	rr(t_list **stack_a, t_list **stack_b);
+void	rra(t_list **stack_a);
+void	rrb(t_list **stack_b);
+void	rrr(t_list **stack_a, t_list **stack_b);
+void	sa(t_list **stack_a);
+void	sb(t_list **stack_b);
 
-typedef struct s_move
-{
-	int	ra;
-	int	rb;
-	int	rra;
-	int	rrb;
-}t_move;
-
-/* push_swap.c */
-void	push_swap(t_list *list_a);
-
-/* checker.c */
-void	checker(t_list *list_a);
-
-/* moves.c */
-void	init_mv(t_move *mv);
-void	do_move(t_list **list_a, t_list **list_b, t_move mv);
-int		move_a(t_list *list_a, t_list *list_b);
-int		move_b(t_list *lst, t_list *elem);
-
-/* need.c */
-int		need_rb(t_list *lst);
-int		need_sa(t_list *lst);
-
-/* solve_a.c*/
-void	solve_a(t_list **list_a, t_list **list_b);
-
-/* solve_b.c*/
-void	solve_b(t_list **list_a, t_list **list_b);
-
-/* align.c */
-void	align(t_list **lst);
-
-/* free.c */
-void	free_list(t_list *lst);
-
-/* index.c */
-int		idx_last(t_list *lst);
-int		idx_min(t_list *lst);
-
-/* error.c */
-void	terminate(void);
-void	command_err(t_list *list_a, t_list *list_b);
-
-/* checks.c */
-void	check_input(int argc, char **argv);
-int		is_digit(char *str);
-void	is_doubles(int *arr, int n);
-
-/* markup.c */
-void	markup(t_list *lst);
-void	markup_clean(t_list *lst);
-
-/* markup_head.c */
-void	markup_head(t_list *lst);
-
-/* positions.c */
-void	add_index(t_list *lst, int *arr);
-
-/* creating.c */
-int		*creat_arr(int argc, char **argv);
-t_list	*creat_list(int *arr, int n);
-
-/* swap.c */
-void	swap(t_list *lst);
-void	swap_d(t_list *list_a, t_list *list_b);
-
-/* push.c */
-void	pa(t_list **lst1, t_list **lst2, int w);
-void	pb(t_list **lst1, t_list **lst2, int w);
-
-/* rotate.c */
-void	rotate(t_list **lst, int rev);
-void	ra(t_list **lst, int w);
-void	rb(t_list **lst, int w);
-void	rra(t_list **lst, int w);
-void	rrb(t_list **lst, int w);
-
-/* double rotate.c */
-void	rr(t_list **lst1, t_list **lst2, int *ra, int *rb);
-void	rrr(t_list **lst1, t_list **lst2, int *rra, int *rrb);
-void	rr_nw(t_list **list_a, t_list **list_b);
-void	rrr_nw(t_list **list_a, t_list **list_b);
-
-/* functoins */
+		/*	Parsing	*/
+void	check_input(int ac, char **av);
+		/*	Initializing	*/
+int    *init_arr(int ac, char **av, int *arr);
+t_list	*init_list(int *arr, t_list *stack_a, int n);
+void	indexing(t_list *lst, int *arr);
+		/*	Libft	*/
 int		ft_atoi(const char *s, int *flag);
 t_list	*ft_lstnew(int value);
-void	ft_lstadd_back(t_list **lst, t_list *new);
-void	ft_lstadd_front(t_list **lst, t_list *new);
-t_list	*ft_lstake_first(t_list **lst);
-t_list	*ft_lstake_last(t_list **lst);
-int		ft_lstlen(t_list *lst);
-void	ft_sort(int *arr, int n);
+int		ft_lst_size(t_list *lst);
 int		ft_strncmp(const char *s1, const char *s2);
+		/*	Sorting	*/
+void 	mergeSort(int *arr, int l, int r);
+void    push_swap(t_list *stack_a);
 
 #endif

@@ -1,0 +1,121 @@
+Mini-projet langage C Avancé : Socket et Structures de données
+Vous allez créer deux applications sous Code blocks : client, serveur
+
+    Côté Client :
+1 se connecter au socket serveur ( Entrer votre login et après demander un mot de passe,
+si le mot de passe est incorrect on peut ressayer 3 fois au maximum( après le sys sera
+arrêté)
+Si le mot de passe est correct on récupère le profil de l’utilisateur (Admin ou invité)
+Les logins sont stockés dans un fichier texte coté serveur comme suit : 
+jaber 123 admin
+khaldi 123 invite
+Après avoir connecté en tant qu’admin le menu doit s’afficher comme suit :
+Administrateur : 
+            BIENVENUE
+RQ: vous avez le droit d'entrer comme -ADMIN ou INVITE seulement :)
+S'il vous plait Saisir votre login : jaber
+
+S'il vous plait Saisir votre password : 123
+
+message envoyU
+
+-VOUS ETES ADMINISTRATEUR--
+
+ 
+
+JEROME LI I I I I I
+
+1-Ajouter un contact
+2-Rechercher un contact
+3-Supprimer un contact
+A-Modifier un contact
+5-Afficher tous les contacts
+6-Quitter
+
+Entrer Votre choix :
+
+Entrer Votre choix :1
+nner le nom du contact : alami
+[Entrez le prünom du contact: hassan
+Entrez le GSM: 010203040506
+Entrez l'email:  jaber@gmail. com
+Saisie de l'adresse:
+veuillez entrer le nom de la rue: zerktouni
+
+euillez entrer la ville du contact: tétouan
+
+veuillez entrer le pays du contact : Maroc
+
+(contact saisi alami#hassan#jaber@enail. com#010203040506#zerktouni#tétouan#Maroc
+Ajout avec succes
+
+ 
+
+Ensuite le client peut saisir des informations et les envoyer au serveur. Le serveur reçoit les
+données et les stocke dans un fichier texte contacts.txt
+Invité : 
+   
+
+*LE_SERVEUR*
+La socket 208 est maintenant ouverte en mode TCP/IP
+
+ee > Listage du port 23...
+
+ee > Patientez pendant que le client se connecte sur le port 23...
+
+Un client se connecte avec la socket :) 216 de 127.0.0.
+FD_SET
+
+rebu: authentificationtjaber#123
+
+authentification
+
+jaber
+
+123
+
+ch1: authentification
+
+ch2: jaber
+
+peration: authentification
+
+ 
+
+:55928
+
+base >le client a demandÜ l'authentification
+trouve !1!
+
+rebu authentification
+
+FD_SET
+
+Côté Serveur :
+1 Être prêt à recevoir les connexions des clients
+2 Vérifier l’authentification des clients (login, mdp,) S’il s’agit de l’administrateur le menu
+de la première figure lui sera Affiché sinon, l’invité ne peut que consulter et rechercher les
+contacts. Bref, le menu est personnalisé en fonction du profil de l’utilisateur.
+3 Afficher l’historique instantanée des clients
+4 Gérer les contacts: (Ajouter, modifier supprimer, rechercher…)
+
+
+
+=**LE_SERVEUR**-
+La socket 208 est maintenant ouverte en mode TCP/IP
+Listage du port 23...
+Patientez pendant que le client se connecte sur le port 23...
+Un client se connecte avec la socket :) 216 de 127.0.0.1:55928 FD_SET
+repu: authentification#jaber#123
+authentification
+jaber
+123
+ch1: authentification
+ch2: jaber
+operation: authentification
+------->le client a demandÚ l'authentification
+trouve !!!
+repu authentification
+FD_SET
+
+Le serveur affiche toutes les requêtes reçues. Et effectue le traitement demandé par le client

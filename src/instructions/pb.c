@@ -1,22 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   pb.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hahadiou <hahadiou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/03 15:59:12 by hahadiou          #+#    #+#             */
-/*   Updated: 2023/02/05 23:39:15 by hahadiou         ###   ########.fr       */
+/*   Created: 2023/02/05 21:11:17 by hahadiou          #+#    #+#             */
+/*   Updated: 2023/02/05 23:40:21 by hahadiou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/push_swap.h"
-void check_leaks();
+#include "../../inc/push_swap.h"
 
-int main(int ac, char **av)
+void	pb(t_list **stack_a, t_list **stack_b)
 {
-    if (ac == 1)
-        return (0);
-    check_input(ac, av);
-    //init(ac, av);
+	t_list	*temp;
+
+	if (*stack_a == NULL)
+		return ;
+	temp = *stack_a;
+	*stack_a = (*stack_a)->next;
+	temp->next = *stack_b;
+	*stack_b = temp;
 }
