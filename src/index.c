@@ -6,7 +6,7 @@
 /*   By: hahadiou <hahadiou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 15:51:46 by hahadiou          #+#    #+#             */
-/*   Updated: 2023/02/05 23:00:11 by hahadiou         ###   ########.fr       */
+/*   Updated: 2023/02/06 21:43:51 by hahadiou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,15 @@ void	assign_index(int *arr, int size)
 		arr[i] = arr[i] * size / range;
 }
 
-int	main(void)
+int	main(int ac, char **av)
 {
-	int	arr[] = {1, 5, 3, 4, 9};
+	int	*arr = (int *)malloc(sizeof(int) * ac - 1);
+	for (int i = 0; i < ac - 1; i++)
+		arr[i] = atoi(av[i + 1]);
 	int	size;
 	int	i;
 
-	size = sizeof(arr) / sizeof(arr[0]);
+	size = ac - 1;
 	assign_index(arr, size);
 	printf("The array with assigned index: \n");
 	for (i = 0; i < size; i++)
