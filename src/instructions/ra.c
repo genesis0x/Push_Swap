@@ -6,7 +6,7 @@
 /*   By: hahadiou <hahadiou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 21:27:13 by hahadiou          #+#    #+#             */
-/*   Updated: 2023/02/05 23:41:05 by hahadiou         ###   ########.fr       */
+/*   Updated: 2023/02/09 18:43:59 by hahadiou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ra(t_list **stack_a)
 {
 	t_list	*temp;
 
-	temp = *stack_a;
+	temp = *stack_a;	
 	if (!temp)
 		return ;
 	while (temp->next)

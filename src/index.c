@@ -6,7 +6,7 @@
 /*   By: hahadiou <hahadiou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 15:51:46 by hahadiou          #+#    #+#             */
-/*   Updated: 2023/02/06 21:43:51 by hahadiou         ###   ########.fr       */
+/*   Updated: 2023/02/07 14:15:58 by hahadiou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,41 +53,3 @@ int	main(int ac, char **av)
 		printf("[%d]\n", arr[i]);
 	return (0);
 }
-
-// static int	find_index(int *arr, int x)
-// {
-// 	int	i;
-
-// 	i = 0;
-// 	while (arr[i] != x)
-// 		i++;
-// 	return (i);
-// }
-
-// void	indexing(t_list *lst, int *arr)
-// {
-// 	while (lst)
-// 	{
-// 		lst->index = find_index(arr, lst->index);
-// 		lst = lst->next;
-// 	}
-// 	free(arr);
-// }
-
-// // int main(int ac, char **av)
-// // {
-// // 	t_list *lst = (t_list *)malloc(sizeof(t_list));
-// // 	//int arr[4] = {2, 3, 4, 5};
-// // 	int *arr = (int *)malloc(sizeof(int) * ac - 1);
-// // 	for (int i = 0; i < ac - 1; i++)
-// // 		arr[i] = atoi(av[i + 1]);
-// // 	indexing(lst, arr);
-// // 	printf("[%d]\n", find_index(arr, ac - 1));
-// // 	t_list *head = lst;
-// // 	while (head)
-// // 	{
-// // 		printf("[%d]\n", head->index);
-// // 		head = head->next;
-// // 	}
-// // 	return (0);
-// // }

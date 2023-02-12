@@ -6,14 +6,14 @@
 /*   By: hahadiou <hahadiou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 19:54:02 by hahadiou          #+#    #+#             */
-/*   Updated: 2023/02/12 22:38:41 by hahadiou         ###   ########.fr       */
+/*   Updated: 2023/02/12 22:44:41 by hahadiou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*  sa (swap a): Swap the first 2 elements at the top of stack a.
 Do nothing if there is only one or no elements. */
 
-#include "../../inc/push_swap.h"
+#include "../inc/push_swap.h"
 
 // void	sa(t_list **stack_a)
 // {

@@ -6,54 +6,40 @@
 /*   By: hahadiou <hahadiou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 15:51:41 by hahadiou          #+#    #+#             */
-/*   Updated: 2023/02/05 22:37:55 by hahadiou         ###   ########.fr       */
+/*   Updated: 2023/02/12 22:29:05 by hahadiou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-static int ft_isdigit(int c)
+void check_input(t_stacks *stack, t_size *size) 
 {
-    return (c >= '0' && c <= '9');
-}
-
-static int is_digit(char *s) 
-{
-    int i;
-
-    i = 1 * (s[0] == '-' || s[0] == '+');
-    while (s[i])
-    { 
-        if (!ft_isdigit(s[i])) 
-            return (0);
-        i++;
-    }
-    return (1);
-}
-
-void check_input(int ac, char **av) 
-{
-    int *arr = (int *)malloc(sizeof(int) * ac - 1);
-    for (int i = 0; i < ac - 1; i++)
-        arr[i] = atoi(av[i + 1]);
-    for (int i = 1; i < ac; i++)
-    {
-        if (!is_digit(av[i]))
-		{
-			printf("Invalid Arg\n");
-			exit(1);
-		}
-    }
-    for (int i = 0; i < ac - 1; i++) 
+    for (int i = 0; i < size->a; i++)
 	{
-        for (int j = i + 1; j < ac - 1; j++) 
+        for (int j = i + 1; j < size->a; j++) 
 		{
-            if (arr[i] == arr[j]) 
+            if (stack->a[i] == stack->a[j]) 
 			{
-                free(arr);
+                free(stack->a);
 				printf("Double Found\n");
                 exit(1);
             }
         }
     }
+}
+
+int is_sorted(int *stack, int size, int order)
+{
+    int i = 1;
+    int ascending = (order == 0);  // Convert order to a boolean value
+
+    while (i < size) 
+    {
+        if (ascending && stack[i - 1] > stack[i]) 
+            return (0);
+        if (!ascending && stack[i - 1] < stack[i]) 
+            return (0);
+        i++;
+    }
+    return (1);
 }

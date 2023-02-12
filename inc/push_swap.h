@@ -6,7 +6,7 @@
 /*   By: hahadiou <hahadiou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/03 19:18:21 by bcaffere          #+#    #+#             */
-/*   Updated: 2023/02/05 22:35:36 by hahadiou         ###   ########.fr       */
+/*   Updated: 2023/02/12 22:42:50 by hahadiou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,41 +19,43 @@
 #include <string.h>
 #include <ctype.h>
 #include <stdio.h>
+#include <stdbool.h>
 
-typedef struct s_list t_list;
+typedef struct s_stacks t_stacks;
+typedef struct s_size	t_size;
 
-struct s_list
+struct s_stacks
 {
-	int				data;
-	int				index;
-	struct s_list	*next;
+	int	*a;
+	int	*b;
 };
 
-		/*	INSTRUCTIONS	*/
-void	pa(t_list **stack_a, t_list **stack_b);
-void	pb(t_list **stack_a, t_list **stack_b);
-void	ra(t_list **stack_a);
-void	rb(t_list **stack_b);
-void	rr(t_list **stack_a, t_list **stack_b);
-void	rra(t_list **stack_a);
-void	rrb(t_list **stack_b);
-void	rrr(t_list **stack_a, t_list **stack_b);
-void	sa(t_list **stack_a);
-void	sb(t_list **stack_b);
+struct s_size
+{
+	int a;
+	int b;
+};
 
+# define ASCENDING 0
+# define DESCENDING 1
+# define OPT 0
+# define STACK 1
+
+		/*	INSTRUCTIONS	*/
+void	sa(int *stack);
 		/*	Parsing	*/
-void	check_input(int ac, char **av);
+void	check_input(t_stacks *stack, t_size *size);
+void	init(int ac, char **av);
+int 	is_sorted(int *stack, int size, int order);
 		/*	Initializing	*/
 int    *init_arr(int ac, char **av, int *arr);
-t_list	*init_list(int *arr, t_list *stack_a, int n);
-void	indexing(t_list *lst, int *arr);
+
 		/*	Libft	*/
-int		ft_atoi(const char *s, int *flag);
-t_list	*ft_lstnew(int value);
-int		ft_lst_size(t_list *lst);
 int		ft_strncmp(const char *s1, const char *s2);
+int		ft_atoi(char *s);
+int 	ft_isdigit(int c);
+char	**ft_split(char const *s, char c);
 		/*	Sorting	*/
-void 	mergeSort(int *arr, int l, int r);
-void    push_swap(t_list *stack_a);
+int    start_push_swap(int *stack , int size);
 
 #endif
