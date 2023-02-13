@@ -6,7 +6,7 @@
 #    By: hahadiou <hahadiou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/03 15:11:30 by hahadiou          #+#    #+#              #
-#    Updated: 2023/02/12 22:44:31 by hahadiou         ###   ########.fr        #
+#    Updated: 2023/02/13 23:49:42 by hahadiou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,9 @@ SRCS = push_swap.c \
 		init.c \
 		utils.c \
 		main.c \
-		sa.c \
+		push.c \
+		rotate.c \
+		swap.c \
 		#init.c \
 		index.c \
 		push.c \

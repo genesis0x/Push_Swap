@@ -1,25 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pb.c                                               :+:      :+:    :+:   */
+/*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hahadiou <hahadiou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/05 21:11:17 by hahadiou          #+#    #+#             */
-/*   Updated: 2023/02/05 23:40:21 by hahadiou         ###   ########.fr       */
+/*   Created: 2023/02/06 21:21:50 by hahadiou          #+#    #+#             */
+/*   Updated: 2023/02/13 23:49:56 by hahadiou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/push_swap.h"
+#include "../inc/push_swap.h"
 
-void	pb(t_list **stack_a, t_list **stack_b)
+void pa(t_stacks *stack, t_size *size)
 {
-	t_list	*temp;
+	int i;
 
-	if (*stack_a == NULL)
-		return ;
-	temp = *stack_a;
-	*stack_a = (*stack_a)->next;
-	temp->next = *stack_b;
-	*stack_b = temp;
+	size->a++;
+	stack->a[0] = stack->b[0];
+	i = -1;
+	size->b--;
+	while (++i < size->b)
+		stack->b[i] = stack->b[i + 1];
+	printf("pa\n");
+}
+
+void	pb(t_stacks *stack, t_size *size)
+{
+	stack->b[size->b++] = stack->a[0];
+	size->a--;
+	for (int i = 0; i < size->a; i++)
+		stack->a[i] = stack->a[i + 1];
+	printf("pb\n");
 }
