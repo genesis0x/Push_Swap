@@ -6,15 +6,15 @@
 /*   By: hahadiou <hahadiou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 21:47:55 by hahadiou          #+#    #+#             */
-/*   Updated: 2023/02/12 22:23:20 by hahadiou         ###   ########.fr       */
+/*   Updated: 2023/02/24 16:37:08 by hahadiou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-int ft_isdigit(int c)
+int	ft_isdigit(int c)
 {
-    return (c >= '0' && c <= '9');
+	return (c >= '0' && c <= '9');
 }
 
 int	ft_atoi(char *s)
@@ -36,11 +36,11 @@ int	ft_atoi(char *s)
 	}
 	while (s[i])
 	{
-        if (!ft_isdigit(s[i]))
-        {
-            printf("Invalid Arg\n");
-            exit(1);
-        }
+		if (!ft_isdigit(s[i]))
+		{
+			printf("Invalid Arg\n");
+			exit(1);
+		}
 		nbr = nbr * 10 + s[i] - 48;
 		i++;
 	}

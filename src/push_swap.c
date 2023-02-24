@@ -6,14 +6,14 @@
 /*   By: hahadiou <hahadiou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 15:59:12 by hahadiou          #+#    #+#             */
-/*   Updated: 2023/02/12 22:36:06 by hahadiou         ###   ########.fr       */
+/*   Updated: 2023/02/23 19:33:35 by hahadiou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
-    init(ac , av);
-    return (0);
+	init(ac, av);
+	return (0);
 }

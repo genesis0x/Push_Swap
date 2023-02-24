@@ -12,30 +12,35 @@
 
 #include "../inc/push_swap.h"
 
-void 	sa(t_stacks *stack) 
+void	sa(t_stacks *stack)
 {
-	int tmp = 0;
+	int	tmp;
+
+	tmp = 0;
 	tmp = stack->a[0];
 	stack->a[0] = stack->a[1];
 	stack->a[1] = tmp;
-	printf("sa\n");     
+	printf("sa\n");
 }
 
-void 	sb(t_stacks *stack) 
+void	sb(t_stacks *stack)
 {
-	int tmp = 0;
+	int	tmp;
+
+	tmp = 0;
 	tmp = stack->b[0];
 	stack->b[0] = stack->b[1];
 	stack->b[1] = tmp;
-	printf("sa\n");     
+	printf("sa\n");
 }
 
-void    ss(t_stacks *stack)
+void	ss(t_stacks *stack)
 {
-	int temp = stack->a[0];
+	int	temp;
+
+	temp = stack->a[0];
 	stack->a[0] = stack->a[1];
 	stack->a[1] = temp;
-	
 	temp = stack->b[0];
 	stack->b[0] = stack->b[1];
 	stack->b[1] = temp;
