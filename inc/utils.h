@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   utils.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hahadiou <hahadiou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/03 15:52:19 by hahadiou          #+#    #+#             */
-/*   Updated: 2023/02/03 15:52:20 by hahadiou         ###   ########.fr       */
+/*   Created: 2023/03/03 17:33:01 by hahadiou          #+#    #+#             */
+/*   Updated: 2023/03/03 20:05:34 by hahadiou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/push_swap.h"
+#ifndef UTILS_H
+# define UTILS_H
 
-int	ft_strncmp(const char *s1, const char *s2)
-{
-	while (*s1 || *s2)
-	{
-		if (*s1 != *s2)
-			return ((unsigned char)*s1 - (unsigned char)*s2);
-		s1++;
-		s2++;
-	}
-	return (0);
-}
+# include <stdlib.h>
+# include <unistd.h>
 
+char	**ft_split(char *s, int i, int j);
+void	ft_puts(char *s);
+int		ft_atoi(char *s, int i, int nbr, int sign);
+
+#endif

@@ -1,19 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hahadiou <hahadiou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/03 15:59:12 by hahadiou          #+#    #+#             */
-/*   Updated: 2023/02/23 19:33:35 by hahadiou         ###   ########.fr       */
+/*   Created: 2023/03/03 17:25:23 by hahadiou          #+#    #+#             */
+/*   Updated: 2023/03/03 20:08:16 by hahadiou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/push_swap.h"
+#include "push_swap.h"
 
-int	main(int ac, char **av)
+void	checker(void)
 {
-	init(ac, av);
-	return (0);
+	exit(1);
 }

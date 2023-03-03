@@ -1,28 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.c                                             :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hahadiou <hahadiou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/03 16:26:14 by hahadiou          #+#    #+#             */
-/*   Updated: 2023/02/24 17:36:52 by hahadiou         ###   ########.fr       */
+/*   Created: 2023/02/12 21:47:55 by hahadiou          #+#    #+#             */
+/*   Updated: 2023/03/03 20:05:14 by hahadiou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/push_swap.h"
+#include "utils.h"
 
-void	init(int ac, char **av)
+static int	ft_isdigit(int c)
 {
-	t_stacks	stack;
+	return (c >= '0' && c <= '9');
+}
 
-	(void)av;
-	stack.a = (int *)malloc(sizeof(int) * ac - 1);
-	if (!stack.a)
-		return ;
-	stack.size_a = ac - 1;
-	for (int i = 0; i < stack.size_a; i++)
-		stack.a[i] = ft_atoi(av[i + 1]);
-	check_input(&stack);
-	start_push_swap(&stack);
+int	ft_atoi(char *s, int i, int nbr, int sign)
+{
+	while (s[i] == 32 || (s[i] >= 9 && s[i] <= 13))
+		i++;
+	if (s[i] == '-' || s[i] == '+')
+	{
+		if (s[i] == '-')
+			sign = -1;
+		i++;
+	}
+	while (s[i])
+	{
+		if (!ft_isdigit(s[i]))
+		{
+			ft_puts("ERROR");
+			exit(1);
+		}
+		nbr = nbr * 10 + s[i] - 48;
+		i++;
+	}
+	return (nbr * sign);
 }

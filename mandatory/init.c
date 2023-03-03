@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hahadiou <hahadiou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/12 22:31:08 by hahadiou          #+#    #+#             */
-/*   Updated: 2023/02/24 19:55:31 by hahadiou         ###   ########.fr       */
+/*   Created: 2023/02/03 16:26:14 by hahadiou          #+#    #+#             */
+/*   Updated: 2023/03/03 20:05:05 by hahadiou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/push_swap.h"
+#include "push_swap.h"
 
-void	start_push_swap(t_stacks *stack)
+void	init(int ac, char **av)
 {
-	int	*arr;
+	t_stacks	stack;
+	int			i;
 
-	if (!is_sorted(stack->a, stack->size_a))
-	{
-		printf("size a : %d\n", stack->size_a);
-		printf("Stack is sorted\n");
-		exit (1);
-	}
-	arr = (int *)malloc(sizeof(int) * stack->size_a);
-	for (int i = 0; i < stack->size_a; i++)
-		arr[i] = stack->a[i];
-	insertionSort(stack, arr);
-	solve(stack);
+	stack.a = (int *)malloc(sizeof(int) * ac - 1);
+	if (!stack.a)
+		return ;
+	stack.size_a = ac - 1;
+	i = -1;
+	while (++i < stack.size_a)
+		stack.a[i] = ft_atoi(av[i + 1], 0, 0, 1);
+	check_input(&stack);
+	start_push_swap(&stack);
 }

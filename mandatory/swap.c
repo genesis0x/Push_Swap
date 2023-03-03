@@ -6,13 +6,13 @@
 /*   By: hahadiou <hahadiou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 21:22:26 by hahadiou          #+#    #+#             */
-/*   Updated: 2023/02/13 23:50:15 by hahadiou         ###   ########.fr       */
+/*   Updated: 2023/03/03 19:32:34 by hahadiou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/push_swap.h"
+#include "push_swap.h"
 
-void	sa(t_stacks *stack)
+void	sa(t_stacks *stack, int print)
 {
 	int	tmp;
 
@@ -20,10 +20,11 @@ void	sa(t_stacks *stack)
 	tmp = stack->a[0];
 	stack->a[0] = stack->a[1];
 	stack->a[1] = tmp;
-	printf("sa\n");
+	if (print)
+		ft_puts("sa");
 }
 
-void	sb(t_stacks *stack)
+void	sb(t_stacks *stack, int print)
 {
 	int	tmp;
 
@@ -31,18 +32,20 @@ void	sb(t_stacks *stack)
 	tmp = stack->b[0];
 	stack->b[0] = stack->b[1];
 	stack->b[1] = tmp;
-	printf("sa\n");
+	if (print)
+		ft_puts("sa");
 }
 
-void	ss(t_stacks *stack)
+void	ss(t_stacks *stack, int print)
 {
-	int	temp;
+	int	tmp;
 
-	temp = stack->a[0];
+	tmp = stack->a[0];
 	stack->a[0] = stack->a[1];
-	stack->a[1] = temp;
-	temp = stack->b[0];
+	stack->a[1] = tmp;
+	tmp = stack->b[0];
 	stack->b[0] = stack->b[1];
-	stack->b[1] = temp;
-	printf("ss\n");
+	stack->b[1] = tmp;
+	if (print)
+		ft_puts("ss");
 }

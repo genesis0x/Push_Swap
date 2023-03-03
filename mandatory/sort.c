@@ -6,35 +6,13 @@
 /*   By: hahadiou <hahadiou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 15:10:20 by hahadiou          #+#    #+#             */
-/*   Updated: 2023/02/24 16:36:23 by hahadiou         ###   ########.fr       */
+/*   Updated: 2023/03/03 19:17:20 by hahadiou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/push_swap.h"
- 
-void insertionSort(t_stacks *stack, int *arr)
-{
-    int i, key, j;
-    for (i = 1; i < stack->size_a; i++) 
-	{
-        key = arr[i];
-        j = i - 1;
- 
-        /* Move elements of arr[0..i-1], that are
-          greater than key, to one position ahead
-          of their current position */
-        while (j >= 0 && arr[j] > key)
-		{
-            arr[j + 1] = arr[j];
-            j = j - 1;
-        }
-        arr[j + 1] = key;
-    }
-	for (int i = 0; i < stack->size_a; i++)
-		ft_rank(stack, arr[i], i);
-}
+#include "push_swap.h"
 
-void	ft_rank(t_stacks *stack, int value, int rank)
+static void	add_index(t_stacks *stack, int value, int rank)
 {
 	int	i;
 
@@ -45,4 +23,27 @@ void	ft_rank(t_stacks *stack, int value, int rank)
 			stack->a[i] = rank;
 		++i;
 	}
+}
+
+void	insertion_sort(t_stacks *stack, int *arr)
+{
+	int	i;
+	int	key;
+	int	j;
+
+	i = 0;
+	while (++i < stack->size_a)
+	{
+		key = arr[i];
+		j = i - 1;
+		while (j >= 0 && arr[j] > key)
+		{
+			arr[j + 1] = arr[j];
+			j = j - 1;
+		}
+		arr[j + 1] = key;
+	}
+	i = -1;
+	while (++i < stack->size_a)
+		add_index(stack, arr[i], i);
 }
