@@ -6,11 +6,20 @@
 /*   By: hahadiou <hahadiou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 00:20:32 by hahadiou          #+#    #+#             */
-/*   Updated: 2023/03/07 00:22:08 by hahadiou         ###   ########.fr       */
+/*   Updated: 2023/03/07 03:54:26 by hahadiou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils.h"
+
+static	int ft_strlen(char const *s)
+{
+	int	i;
+
+	i = -1;
+	while (s[++i]);
+	return (i);
+}
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
@@ -23,8 +32,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	if (!s1 || !s2)
 		return (NULL);
 	i = -1;
-	len1 = strlen(s1);
-	len2 = strlen(s2);
+	len1 = ft_strlen(s1);
+	len2 = ft_strlen(s2);
 	new = malloc(len1 + len2 + 1);
 	if (!new)
 		return (NULL);

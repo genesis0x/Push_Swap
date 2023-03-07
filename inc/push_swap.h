@@ -6,7 +6,7 @@
 /*   By: hahadiou <hahadiou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 22:45:35 by hahadiou          #+#    #+#             */
-/*   Updated: 2023/03/07 02:47:52 by hahadiou         ###   ########.fr       */
+/*   Updated: 2023/03/07 03:49:51 by hahadiou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include "utils.h"
 # include <stdbool.h>
-#include <stdio.h>
+
 typedef struct s_stacks	t_stacks;
 
 struct					s_stacks
