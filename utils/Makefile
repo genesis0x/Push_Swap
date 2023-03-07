@@ -6,15 +6,17 @@
 #    By: hahadiou <hahadiou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/03 17:29:07 by hahadiou          #+#    #+#              #
-#    Updated: 2023/03/03 19:18:42 by hahadiou         ###   ########.fr        #
+#    Updated: 2023/03/07 03:47:38 by hahadiou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS =	ft_puts.c \
 		ft_split.c \
-		ft_atoi.c 
+		ft_atoi.c \
+		ft_strjoin.c
 
-OBJS = ${SRCS:.c=.o}
+OBJS = ${addprefix obj/, ${SRCS:.c=.o}}
+OBJ_PATH = obj
 
 NAME = libft.a
 
@@ -26,18 +28,19 @@ RM = rm -f
 
 all: ${NAME}
 
-.c.o:
-			@${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
+obj/%.o: %.c
+			@mkdir -p $(OBJ_PATH)
+			@${CC} ${CFLAGS} -c $< -o $@
 
 $(NAME): $(OBJS)
 			@ar -rc $(NAME) $(OBJS)
 
 clean:
-			@${RM} ${OBJS}
+	@rm -rf $(OBJ_PATH)
 
 fclean: clean
-			@${RM} ${NAME}
+	@rm -f $(NAME)
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY:	all clean fclean re 

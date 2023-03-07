@@ -6,7 +6,7 @@
 /*   By: hahadiou <hahadiou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 21:47:55 by hahadiou          #+#    #+#             */
-/*   Updated: 2023/03/03 20:05:14 by hahadiou         ###   ########.fr       */
+/*   Updated: 2023/03/07 03:10:48 by hahadiou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,8 @@ int	ft_atoi(char *s, int i, int nbr, int sign)
 	{
 		if (!ft_isdigit(s[i]))
 		{
-			ft_puts("ERROR");
+			printf("%c\n", s[i]);
+			ft_puts("Invalid Arg");
 			exit(1);
 		}
 		nbr = nbr * 10 + s[i] - 48;

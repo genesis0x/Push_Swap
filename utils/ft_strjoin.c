@@ -1,42 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hahadiou <hahadiou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/03 15:59:12 by hahadiou          #+#    #+#             */
-/*   Updated: 2023/03/07 03:12:20 by hahadiou         ###   ########.fr       */
+/*   Created: 2023/03/07 00:20:32 by hahadiou          #+#    #+#             */
+/*   Updated: 2023/03/07 00:22:08 by hahadiou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "utils.h"
 
-int	main(int ac, char **av)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	if (ac > 1)
-	{
-		char **tmp;
-		char *temp;
-		int i;
-		int size;
+	char	*new;
+	int		len1;
+	int		len2;
+	int		i;
+	int		j;
 
-		i = 1;
-		size = 0;
-		temp = malloc(1);
-		while (av[i])
-		{
-			tmp = ft_split(av[i], 0, 0);
-			for (int i = 0; tmp[i]; i++)
-			{
-				++size;
-				temp = ft_strjoin(temp, tmp[i]);
-				temp = ft_strjoin(temp, " ");
-			}
-			i++;
-		}
-		free(tmp);
-		init(av, temp, size);
+	if (!s1 || !s2)
+		return (NULL);
+	i = -1;
+	len1 = strlen(s1);
+	len2 = strlen(s2);
+	new = malloc(len1 + len2 + 1);
+	if (!new)
+		return (NULL);
+	while (++i < len1)
+		new[i] = s1[i];
+	j = -1;
+	while (++j < len2)
+	{
+		new[i] = s2[j];
+		i++;
 	}
-	return (0);
+	new[i] = '\0';
+	return (new);
 }

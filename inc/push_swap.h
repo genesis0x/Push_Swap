@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hahadiou <hahadiou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/03 19:18:21 by bcaffere          #+#    #+#             */
-/*   Updated: 2023/03/03 20:16:59 by hahadiou         ###   ########.fr       */
+/*   Created: 2023/03/03 22:45:35 by hahadiou          #+#    #+#             */
+/*   Updated: 2023/03/07 02:47:52 by hahadiou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include "utils.h"
 # include <stdbool.h>
-
+#include <stdio.h>
 typedef struct s_stacks	t_stacks;
 
 struct					s_stacks
@@ -38,7 +38,7 @@ void					rra(t_stacks *stack, int print);
 void					rrb(t_stacks *stack, int print);
 void					rrr(t_stacks *stack, int print);
 void					check_input(t_stacks *stack);
-void					init(int ac, char **av);
+void					init(char **av, char *t, int size);
 int						is_sorted(int *stack, int size);
 void					start_push_swap(t_stacks *stack);
 void					solve(t_stacks *stack);

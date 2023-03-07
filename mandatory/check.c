@@ -6,7 +6,7 @@
 /*   By: hahadiou <hahadiou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 15:51:41 by hahadiou          #+#    #+#             */
-/*   Updated: 2023/03/03 19:23:02 by hahadiou         ###   ########.fr       */
+/*   Updated: 2023/03/07 02:46:35 by hahadiou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	check_input(t_stacks *stack)
 			if (stack->a[i] == stack->a[j])
 			{
 				free(stack->a);
-				ft_puts("ERROR");
+				ft_puts("Double Found");
 				exit(1);
 			}
 		}

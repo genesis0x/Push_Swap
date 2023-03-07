@@ -6,7 +6,7 @@
 /*   By: hahadiou <hahadiou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 23:44:08 by hahadiou          #+#    #+#             */
-/*   Updated: 2023/03/03 20:16:15 by hahadiou         ###   ########.fr       */
+/*   Updated: 2023/03/07 03:05:59 by hahadiou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,11 @@ static int	get_index(t_stacks *stack, int n)
 {
 	int	i;
 
-	i = 0;
-	while (i < stack->size_b)
+	i = -1;
+	while (++i < stack->size_b)
 	{
 		if (stack->b[i] == n)
 			return (i);
-		i++;
 	}
 	return (-1);
 }
@@ -68,12 +67,15 @@ void	range_sort(t_stacks *stack, int range, int i)
 		free(stack->a);
 		exit(1);
 	}
+	stack->size_b = 0;
 	solve_a(stack, range, i);
 	solve_b(stack);
 }
 
 void	solve(t_stacks *stack)
 {
+	//if (stack->size_a == 3)
+	//	sort_3(stack);
 	if (stack->size_a == 100)
 		range_sort(stack, 15, 0);
 	if (stack->size_a == 500)
