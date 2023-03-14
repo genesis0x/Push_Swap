@@ -6,12 +6,12 @@
 #    By: hahadiou <hahadiou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/03 15:11:30 by hahadiou          #+#    #+#              #
-#    Updated: 2023/03/03 19:48:28 by hahadiou         ###   ########.fr        #
+#    Updated: 2023/03/14 21:21:31 by hahadiou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC		= cc
-FLAGS	= -Wall -Wextra -Werror -IINC
+FLAGS	= -Wall -Wextra -Werror -IINC -fsanitize=address
 
 NAME	= push_swap
 NAMEB	= checker
@@ -31,7 +31,8 @@ SRCS = push_swap.c \
 		rotate.c \
 		swap.c \
 		solve.c \
-		sort.c 
+		sort.c \
+		leaks.c
 		
 SRCSB = checker.c
 		
@@ -65,7 +66,7 @@ $(OBJ_PATH)/%.o: $(MANDATORY_PATH)/%.c $(INC)/$(NAME).h
 $(NAMEB): $(OBJB)
 	@echo "$(YELLOW)Compiling Utils...$(NOC)"
 	@make -sC $(UTILS_PATH)
-	@echo "$(YELLOW)Compiling Push_swap Bonus...$(NOC)"
+	@echo "$(YELLOW)Compiling Checker...$(NOC)"
 	@$(CC) $(FLAGS) -L $(UTILS_PATH) -o $@ $^ -lft
 	@echo "$(GREEN)$@$(NOC)"
 
@@ -74,13 +75,13 @@ $(OBJB_PATH)/%.o: $(BONUS_PATH)/%.c $(INC)/$(NAME).h
 	@$(CC) $(FLAGS) -I$(INC) -c -o $@ $<
 	
 clean:
-	@echo "$(RED)Deleting Push_swap OBJS ✔️ $(NOC)"
+	@echo "$(RED)Deleting OBJS ✔️ $(NOC)"
 	@make clean -sC $(UTILS_PATH)
 	@rm -rf $(OBJ_PATH)
 	@rm -rf $(OBJB_PATH)
 
 fclean: clean
-	@echo "$(RED)Deleting Push_swap Binary ✔️$(NOC)"
+	@echo "$(RED)Deleting Binary ✔️$(NOC)"
 	@make fclean -sC $(UTILS_PATH)
 	@rm -f $(NAME) ${NAMEB}
 

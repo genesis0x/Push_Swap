@@ -6,13 +6,13 @@
 /*   By: hahadiou <hahadiou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 21:21:50 by hahadiou          #+#    #+#             */
-/*   Updated: 2023/03/03 20:03:45 by hahadiou         ###   ########.fr       */
+/*   Updated: 2023/03/14 21:27:20 by hahadiou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	pa(t_stacks *stack, int print)
+void	pa(t_stacks *stack, bool print)
 {
 	int	tmp;
 	int	i;
@@ -34,7 +34,7 @@ void	pa(t_stacks *stack, int print)
 	}
 }
 
-void	pb(t_stacks *stack, int print)
+void	pb(t_stacks *stack, bool print)
 {
 	int	tmp;
 	int	i;
@@ -56,7 +56,7 @@ void	pb(t_stacks *stack, int print)
 	}
 }
 
-void	rrr(t_stacks *stack, int print)
+void	rrr(t_stacks *stack, bool print)
 {
 	if (stack->size_a > 1 && stack->size_b > 1)
 	{

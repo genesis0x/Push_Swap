@@ -6,7 +6,7 @@
 /*   By: hahadiou <hahadiou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 23:44:08 by hahadiou          #+#    #+#             */
-/*   Updated: 2023/03/07 03:05:59 by hahadiou         ###   ########.fr       */
+/*   Updated: 2023/03/14 14:17:45 by hahadiou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,8 @@ static void	solve_b(t_stacks *stack)
 				rrb(stack, 1);
 		pa(stack, 1);
 	}
+    free(stack->a);
+    free(stack->b);
 }
 
 void	range_sort(t_stacks *stack, int range, int i)

@@ -6,22 +6,23 @@
 /*   By: hahadiou <hahadiou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 00:20:32 by hahadiou          #+#    #+#             */
-/*   Updated: 2023/03/07 03:54:26 by hahadiou         ###   ########.fr       */
+/*   Updated: 2023/03/14 21:09:39 by hahadiou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils.h"
 
-static	int ft_strlen(char const *s)
+static int	ft_strlen(char const *s)
 {
 	int	i;
 
 	i = -1;
-	while (s[++i]);
+	while (s[++i])
+		;
 	return (i);
 }
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char *s1, char *s2)
 {
 	char	*new;
 	int		len1;
@@ -29,8 +30,11 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	int		i;
 	int		j;
 
-	if (!s1 || !s2)
-		return (NULL);
+	if (!s1)
+	{
+		s1 = (char*) malloc(1);
+		s1[0] = '\0';
+	}
 	i = -1;
 	len1 = ft_strlen(s1);
 	len2 = ft_strlen(s2);
@@ -46,5 +50,6 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		i++;
 	}
 	new[i] = '\0';
-	return (new);
+	free(s1);
+    return (new);
 }

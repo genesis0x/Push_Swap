@@ -1,28 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_stack_size.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hahadiou <hahadiou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/12 22:31:08 by hahadiou          #+#    #+#             */
-/*   Updated: 2023/03/14 14:12:32 by hahadiou         ###   ########.fr       */
+/*   Created: 2023/03/14 14:40:11 by hahadiou          #+#    #+#             */
+/*   Updated: 2023/03/14 14:55:56 by hahadiou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "utils.h"
 
-void	start_push_swap(t_stacks *stack)
+int ft_stack_size(char **av)
 {
-	int	*arr;
-	int	i;
+	char	**tmp;
+	int		i;
+	int		size;
+	int		j;
 
-	//if (!is_sorted(stack->a, stack->size_a))
-	//	exit(1);
-	arr = (int *)malloc(sizeof(int) * stack->size_a);
-	i = -1;
-	while (++i < stack->size_a)
-		arr[i] = stack->a[i];
-	insertion_sort(stack, arr);
-	solve(stack);
+	i = 1;
+	size = 0;
+	while (av[i])
+	{
+		tmp = ft_split(av[i], 0, 0);
+		j = -1;
+		while (tmp[++j])
+		{
+			++size;
+            free(tmp[j]);
+		}
+        free(tmp);
+		i++;
+	}
+    tmp = NULL;
+    return (size);
 }

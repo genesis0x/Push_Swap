@@ -6,7 +6,7 @@
 /*   By: hahadiou <hahadiou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 18:17:08 by hahadiou          #+#    #+#             */
-/*   Updated: 2023/03/03 23:31:29 by hahadiou         ###   ########.fr       */
+/*   Updated: 2023/03/14 14:47:32 by hahadiou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,20 +76,3 @@ char	**ft_split(char *s, int i, int j)
 	res[j] = 0;
 	return (res);
 }
-
-
-// int main(int ac, char **av)
-// {
-// 	(void)ac;
-// 	int i = 0;
-// 	char **a;
-// 	while (av[++i])
-// 	{
-// 		a = ft_split(av[i], 0, 0);
-// 		printf("%s\n", *a);
-// 	}
-// 	// char **a = ft_split(*av, 0, 0);
-// 	// int i = 0;
-	
-// 	return 0;
-// }

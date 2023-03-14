@@ -6,7 +6,7 @@
 /*   By: hahadiou <hahadiou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 17:25:23 by hahadiou          #+#    #+#             */
-/*   Updated: 2023/03/03 20:08:16 by hahadiou         ###   ########.fr       */
+/*   Updated: 2023/03/14 21:22:03 by hahadiou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,4 +15,10 @@
 void	checker(void)
 {
 	exit(1);
+}
+
+int main(void)
+{
+	checker();
+	return 0;
 }

@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_free.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hahadiou <hahadiou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/12 22:31:08 by hahadiou          #+#    #+#             */
-/*   Updated: 2023/03/14 14:12:32 by hahadiou         ###   ########.fr       */
+/*   Created: 2023/03/12 17:02:53 by hahadiou          #+#    #+#             */
+/*   Updated: 2023/03/14 21:14:50 by hahadiou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "utils.h"
 
-void	start_push_swap(t_stacks *stack)
+void    ft_free(char **tmp)
 {
-	int	*arr;
-	int	i;
+    int i;
 
-	//if (!is_sorted(stack->a, stack->size_a))
-	//	exit(1);
-	arr = (int *)malloc(sizeof(int) * stack->size_a);
-	i = -1;
-	while (++i < stack->size_a)
-		arr[i] = stack->a[i];
-	insertion_sort(stack, arr);
-	solve(stack);
+    i = 0;
+    while (tmp[i])
+    {
+        free(tmp[i]);
+        i++;
+    }
+    free(tmp);
+    tmp = NULL;
 }
