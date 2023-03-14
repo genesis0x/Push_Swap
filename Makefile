@@ -6,12 +6,12 @@
 #    By: hahadiou <hahadiou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/03 15:11:30 by hahadiou          #+#    #+#              #
-#    Updated: 2023/03/14 21:21:31 by hahadiou         ###   ########.fr        #
+#    Updated: 2023/03/14 22:41:07 by hahadiou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC		= cc
-FLAGS	= -Wall -Wextra -Werror -IINC -fsanitize=address
+FLAGS	= -Wall -Wextra -Werror -IINC 
 
 NAME	= push_swap
 NAMEB	= checker
@@ -31,9 +31,8 @@ SRCS = push_swap.c \
 		rotate.c \
 		swap.c \
 		solve.c \
-		sort.c \
-		leaks.c
-		
+		sort.c 
+				
 SRCSB = checker.c
 		
 SRC		= $(addprefix $(MANDATORY_PATH)/,$(SRCS))

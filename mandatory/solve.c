@@ -6,12 +6,12 @@
 /*   By: hahadiou <hahadiou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 23:44:08 by hahadiou          #+#    #+#             */
-/*   Updated: 2023/03/14 14:17:45 by hahadiou         ###   ########.fr       */
+/*   Updated: 2023/03/14 23:33:01 by hahadiou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
+#include <stdio.h>
 static int	get_index(t_stacks *stack, int n)
 {
 	int	i;
@@ -76,10 +76,12 @@ void	range_sort(t_stacks *stack, int range, int i)
 
 void	solve(t_stacks *stack)
 {
-	//if (stack->size_a == 3)
-	//	sort_3(stack);
-	if (stack->size_a == 100)
+	if (stack->size_a == 2)
+		sort2(stack);
+	else if (stack->size_a == 3)
+		sort3(stack);
+	else if (stack->size_a == 100)
 		range_sort(stack, 15, 0);
-	if (stack->size_a == 500)
+	else if (stack->size_a == 500)
 		range_sort(stack, 35, 0);
 }

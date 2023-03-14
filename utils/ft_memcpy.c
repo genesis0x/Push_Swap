@@ -1,33 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hahadiou <hahadiou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/03 15:59:12 by hahadiou          #+#    #+#             */
-/*   Updated: 2023/03/14 22:41:26 by hahadiou         ###   ########.fr       */
+/*   Created: 2023/03/14 22:31:26 by hahadiou          #+#    #+#             */
+/*   Updated: 2023/03/14 22:31:36 by hahadiou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "utils.h"
 
-int	main(int ac, char **av)
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	char	*temp;
-	int		i;
+	unsigned char	*in_dst;
+	unsigned char	*in_src;
 
-	temp = NULL;
-	if (ac > 1)
-	{
-		i = 1;
-		while (av[i])
-		{
-			temp = ft_strjoin(temp, av[i]);
-			temp = ft_strjoin(temp, " ");
-			i++;
-		}
-		init(av, temp, ft_stack_size(av));
-	}
-	return (0);
+	if (!dst && !src)
+		return (NULL);
+	in_dst = (unsigned char *)dst;
+	in_src = (unsigned char *)src;
+	while (n-- > 0)
+		*in_dst++ = *in_src++;
+	return (dst);
 }

@@ -6,7 +6,7 @@
 #    By: hahadiou <hahadiou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/03 17:29:07 by hahadiou          #+#    #+#              #
-#    Updated: 2023/03/14 14:48:08 by hahadiou         ###   ########.fr        #
+#    Updated: 2023/03/14 22:35:47 by hahadiou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,8 @@ SRCS =	ft_puts.c \
 		ft_atoi.c \
 		ft_strjoin.c \
 		ft_free.c \
+		ft_memcpy.c \
+		get_next_line.c \
 		ft_stack_size.c
 
 OBJS = ${addprefix obj/, ${SRCS:.c=.o}}

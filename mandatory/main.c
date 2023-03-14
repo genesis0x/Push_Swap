@@ -6,7 +6,7 @@
 /*   By: hahadiou <hahadiou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 22:31:08 by hahadiou          #+#    #+#             */
-/*   Updated: 2023/03/14 14:12:32 by hahadiou         ###   ########.fr       */
+/*   Updated: 2023/03/14 23:09:50 by hahadiou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ void	start_push_swap(t_stacks *stack)
 	int	*arr;
 	int	i;
 
-	//if (!is_sorted(stack->a, stack->size_a))
-	//	exit(1);
+	if (!is_sorted(stack->a, stack->size_a))
+		exit(1);
 	arr = (int *)malloc(sizeof(int) * stack->size_a);
 	i = -1;
 	while (++i < stack->size_a)

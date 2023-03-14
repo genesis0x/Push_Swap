@@ -6,7 +6,7 @@
 /*   By: hahadiou <hahadiou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 22:45:35 by hahadiou          #+#    #+#             */
-/*   Updated: 2023/03/14 21:27:03 by hahadiou         ###   ########.fr       */
+/*   Updated: 2023/03/14 23:35:01 by hahadiou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PUSH_SWAP_H
 
 # include "utils.h"
+# include <stdbool.h>
 
 typedef struct s_stacks	t_stacks;
 
@@ -41,8 +42,9 @@ void					init(char **av, char *t, int size);
 int						is_sorted(int *stack, int size);
 void					start_push_swap(t_stacks *stack);
 void					solve(t_stacks *stack);
+void    				sort3(t_stacks *stack);
+void    				sort2(t_stacks *stack);
 void					insertion_sort(t_stacks *stack, int *arr);
 void					range_sort(t_stacks *stack, int range, int i);
-void check_leaks();
 
 #endif
