@@ -38,7 +38,7 @@ void					rra(t_stacks *stack, bool print);
 void					rrb(t_stacks *stack, bool print);
 void					rrr(t_stacks *stack, bool print);
 void					check_input(t_stacks *stack);
-void					init(char **av, char *t, int size);
+t_stacks				init(char **av, char *t, int size);
 int						is_sorted(int *stack, int size);
 void					start_push_swap(t_stacks *stack);
 void					solve(t_stacks *stack);

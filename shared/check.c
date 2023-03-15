@@ -50,9 +50,9 @@ int	is_sorted(int *stack, int n)
 			is_descending = false;
 	}
 	if (is_ascending)
-		return (0);
+		return (2);
 	else if (is_descending)
-		return (0);
+		return (3);
 	else
 		return (1);
 	return (-1);

@@ -14,6 +14,7 @@
 
 int	main(int ac, char **av)
 {
+	t_stacks	stack;
 	char	*temp;
 	int		i;
 
@@ -27,7 +28,8 @@ int	main(int ac, char **av)
 			temp = ft_strjoin(temp, " ");
 			i++;
 		}
-		init(av, temp, ft_stack_size(av));
+		stack = init(av, temp, ft_stack_size(av));
+		start_push_swap(&stack);
 	}
 	return (0);
 }

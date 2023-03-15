@@ -72,7 +72,7 @@ char	*get_next_line(int fd)
 	t_line			line;
 	static t_read	reserve;
 
-	if (fd < 0 || read(fd, line.buf, 0) < 0)
+	if (fd < 0)
 		return (0);
 	line.buf = 0;
 	line.pos = 0;

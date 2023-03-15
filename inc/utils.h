@@ -45,6 +45,7 @@ int						ft_stack_size(char **av);
 char					*ft_strjoin(char *s1, char *s2);
 void					ft_free(char **t);
 void					*ft_memcpy(void *dst, const void *src, size_t n);
+int						ft_strcmp(char *s1, char *s2);
 char					*get_next_line(int fd);
 
 #endif

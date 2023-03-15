@@ -19,28 +19,32 @@ NAMEB	= checker
 INC	= inc
 UTILS_PATH	= utils
 MANDATORY_PATH	= mandatory
+SHARED_PATH	= shared
+SH_OBJB_PATH	 = sh_obj
 BONUS_PATH = bonus
 OBJ_PATH	= obj
 OBJB_PATH	= obj_bonus
 
 SRCS = push_swap.c \
-		check.c \
-		init.c \
 		main.c \
-		push.c \
-		rotate.c \
-		swap.c \
 		solve.c \
 		solve_small.c \
 		sort.c 
-				
+
+SH_SRCS = init.c \
+			check.c \
+			push.c \
+			rotate.c \
+			swap.c
+
 SRCSB = checker.c \
-		checker_utils.c
 		
 SRC		= $(addprefix $(MANDATORY_PATH)/,$(SRCS))
 SRC_B	= $(addprefix $(BONUS_PATH)/,$(SRCSB))
+SH_SRC 	= $(addprefix $(SHARED_PATH)/,$(SH_SRCS))
 OBJ		= $(addprefix $(OBJ_PATH)/,$(SRCS:.c=.o))
 OBJB	= $(addprefix $(OBJB_PATH)/,$(SRCSB:.c=.o))
+SH_OBJ	= $(addprefix $(SH_OBJB_PATH)/,$(SH_SRCS:.c=.o))
 
 NOC		= \033[0m
 RED		= \033[1;31m
@@ -53,7 +57,7 @@ all: $(NAME)
 
 bonus: $(NAMEB)
 
-$(NAME): $(OBJ)
+$(NAME): $(OBJ) $(SH_OBJ)
 	@echo "$(YELLOW)Compiling Utils...$(NOC)"
 	@make -sC $(UTILS_PATH)
 	@echo "$(YELLOW)Compiling Push_swap...$(NOC)"
@@ -64,7 +68,11 @@ $(OBJ_PATH)/%.o: $(MANDATORY_PATH)/%.c $(INC)/$(NAME).h
 	@mkdir -p obj
 	@$(CC) $(FLAGS) -I$(INC) -c -o $@ $<
 
-$(NAMEB): $(OBJB)
+$(SH_OBJB_PATH)/%.o: $(SHARED_PATH)/%.c $(INC)/$(NAME).h
+	@mkdir -p sh_obj
+	@$(CC) $(FLAGS) -I$(INC) -c -o $@ $<
+
+$(NAMEB): $(OBJB) $(SH_OBJ)
 	@echo "$(YELLOW)Compiling Utils...$(NOC)"
 	@make -sC $(UTILS_PATH)
 	@echo "$(YELLOW)Compiling Checker...$(NOC)"
@@ -80,6 +88,7 @@ clean:
 	@make clean -sC $(UTILS_PATH)
 	@rm -rf $(OBJ_PATH)
 	@rm -rf $(OBJB_PATH)
+	@rm -rf $(SH_OBJB_PATH)
 
 fclean: clean
 	@echo "$(RED)Deleting Binary ✔️$(NOC)"

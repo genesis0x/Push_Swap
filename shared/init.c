@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void	init(char **av, char *temp, int size)
+t_stacks	init(char **av, char *temp, int size)
 {
 	t_stacks	stack;
 	int			i;
@@ -20,7 +20,7 @@ void	init(char **av, char *temp, int size)
 	stack.size_a = size;
 	stack.a = (int *)malloc(sizeof(int) * stack.size_a);
 	if (!stack.a)
-		return ;
+		stack.a = (NULL);
 	av = ft_split(temp, 0, 0);
 	free(temp);
 	i = -1;
@@ -28,5 +28,5 @@ void	init(char **av, char *temp, int size)
 		stack.a[i] = ft_atoi(av[i], 0, 0, 1);
 	ft_free(av);
 	check_input(&stack);
-	start_push_swap(&stack);
+	return (stack);
 }
