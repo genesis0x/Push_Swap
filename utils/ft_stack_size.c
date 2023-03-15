@@ -6,13 +6,13 @@
 /*   By: hahadiou <hahadiou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 14:40:11 by hahadiou          #+#    #+#             */
-/*   Updated: 2023/03/14 14:55:56 by hahadiou         ###   ########.fr       */
+/*   Updated: 2023/03/15 15:03:04 by hahadiou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils.h"
 
-int ft_stack_size(char **av)
+int	ft_stack_size(char **av)
 {
 	char	**tmp;
 	int		i;
@@ -28,11 +28,11 @@ int ft_stack_size(char **av)
 		while (tmp[++j])
 		{
 			++size;
-            free(tmp[j]);
+			free(tmp[j]);
 		}
-        free(tmp);
+		free(tmp);
 		i++;
 	}
-    tmp = NULL;
-    return (size);
+	tmp = NULL;
+	return (size);
 }

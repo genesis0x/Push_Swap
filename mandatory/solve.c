@@ -6,20 +6,20 @@
 /*   By: hahadiou <hahadiou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 23:44:08 by hahadiou          #+#    #+#             */
-/*   Updated: 2023/03/14 23:33:01 by hahadiou         ###   ########.fr       */
+/*   Updated: 2023/03/15 18:45:36 by hahadiou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
-static int	get_index(t_stacks *stack, int n)
+
+int	get_index(int *stack, int size, int n)
 {
 	int	i;
 
 	i = -1;
-	while (++i < stack->size_b)
+	while (++i < size)
 	{
-		if (stack->b[i] == n)
+		if (stack[i] == n)
 			return (i);
 	}
 	return (-1);
@@ -31,17 +31,17 @@ static void	solve_a(t_stacks *stack, int range, int i)
 	{
 		if (stack->a[0] < i)
 		{
-			pb(stack, 1);
-			rb(stack, 1);
+			pb(stack, true);
+			rb(stack, true);
 			++i;
 		}
 		else if (stack->a[0] < range + i)
 		{
-			pb(stack, 1);
+			pb(stack, true);
 			++i;
 		}
 		else
-			ra(stack, 1);
+			ra(stack, true);
 	}
 }
 
@@ -49,19 +49,24 @@ static void	solve_b(t_stacks *stack)
 {
 	while (stack->size_b)
 	{
-		if (get_index(stack, stack->size_b - 1) < stack->size_b / 2)
-			while (get_index(stack, stack->size_b - 1))
-				rb(stack, 1);
+		if (get_index(stack->b, stack->size_b, stack->size_b
+				- 1) < stack->size_b / 2)
+			while (get_index(stack->b, stack->size_b, stack->size_b - 1))
+				rb(stack, true);
 		else
-			while (get_index(stack, stack->size_b - 1))
-				rrb(stack, 1);
-		pa(stack, 1);
+			while (get_index(stack->b, stack->size_b, stack->size_b - 1))
+				rrb(stack, true);
+		pa(stack, true);
 	}
-    free(stack->a);
-    free(stack->b);
 }
 
 void	range_sort(t_stacks *stack, int range, int i)
+{
+	solve_a(stack, range, i);
+	solve_b(stack);
+}
+
+void	solve(t_stacks *stack)
 {
 	stack->b = (int *)malloc(sizeof(int) * stack->size_a);
 	if (!stack->b)
@@ -70,18 +75,12 @@ void	range_sort(t_stacks *stack, int range, int i)
 		exit(1);
 	}
 	stack->size_b = 0;
-	solve_a(stack, range, i);
-	solve_b(stack);
-}
-
-void	solve(t_stacks *stack)
-{
-	if (stack->size_a == 2)
-		sort2(stack);
-	else if (stack->size_a == 3)
-		sort3(stack);
-	else if (stack->size_a == 100)
-		range_sort(stack, 15, 0);
-	else if (stack->size_a == 500)
+	if (stack->size_a <= 15)
+		sort_small(stack);
+	else if (stack->size_a <= 100)
+		range_sort(stack, 19, 0);
+	else if (stack->size_a <= 500)
 		range_sort(stack, 35, 0);
+	free(stack->a);
+	free(stack->b);
 }

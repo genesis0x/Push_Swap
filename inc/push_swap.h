@@ -6,7 +6,7 @@
 /*   By: hahadiou <hahadiou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 22:45:35 by hahadiou          #+#    #+#             */
-/*   Updated: 2023/03/14 23:35:01 by hahadiou         ###   ########.fr       */
+/*   Updated: 2023/03/15 18:12:42 by hahadiou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,8 @@ void					init(char **av, char *t, int size);
 int						is_sorted(int *stack, int size);
 void					start_push_swap(t_stacks *stack);
 void					solve(t_stacks *stack);
-void    				sort3(t_stacks *stack);
-void    				sort2(t_stacks *stack);
+void					sort_small(t_stacks *stack);
+int						get_index(int *stack, int size, int n);
 void					insertion_sort(t_stacks *stack, int *arr);
 void					range_sort(t_stacks *stack, int range, int i);
 

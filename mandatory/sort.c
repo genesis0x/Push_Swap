@@ -46,5 +46,5 @@ void	insertion_sort(t_stacks *stack, int *arr)
 	i = -1;
 	while (++i < stack->size_a)
 		add_index(stack, arr[i], i);
-    free(arr);
+	free(arr);
 }

@@ -12,16 +12,16 @@
 
 #include "utils.h"
 
-void    ft_free(char **tmp)
+void	ft_free(char **tmp)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    while (tmp[i])
-    {
-        free(tmp[i]);
-        i++;
-    }
-    free(tmp);
-    tmp = NULL;
+	i = 0;
+	while (tmp[i])
+	{
+		free(tmp[i]);
+		i++;
+	}
+	free(tmp);
+	tmp = NULL;
 }

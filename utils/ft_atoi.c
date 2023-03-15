@@ -40,7 +40,7 @@ int	ft_atoi(char *s, int i, long nbr, int sign)
 	if (nbr > INT_MAX || nbr < INT_MIN)
 	{
 		ft_puts("ERROR");
-		exit (1); 	
+		exit(1);
 	}
 	return (nbr * sign);
 }
