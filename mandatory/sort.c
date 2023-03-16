@@ -6,7 +6,7 @@
 /*   By: hahadiou <hahadiou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 15:10:20 by hahadiou          #+#    #+#             */
-/*   Updated: 2023/03/14 21:19:27 by hahadiou         ###   ########.fr       */
+/*   Updated: 2023/03/16 23:14:40 by hahadiou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,23 +25,25 @@ static void	add_index(t_stacks *stack, int value, int rank)
 	}
 }
 
-void	insertion_sort(t_stacks *stack, int *arr)
+void bubbleSort(t_stacks *stack, int *arr)
 {
-	int	i;
-	int	key;
+    int	i;
 	int	j;
-
-	i = 0;
+	int	tmp;
+	
+	i = -1;
+	j = -1;
 	while (++i < stack->size_a)
 	{
-		key = arr[i];
-		j = i - 1;
-		while (j > -1 && arr[j] > key)
+		while (++j < stack->size_a - 1)
 		{
-			arr[j + 1] = arr[j];
-			j = j - 1;
+            if (arr[j] > arr[j + 1])
+			{
+				tmp = arr[j];
+				arr[j] = arr[j + 1];
+				arr[j + 1] = tmp;				
+			}
 		}
-		arr[j + 1] = key;
 	}
 	i = -1;
 	while (++i < stack->size_a)

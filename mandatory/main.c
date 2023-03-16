@@ -6,7 +6,7 @@
 /*   By: hahadiou <hahadiou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 22:31:08 by hahadiou          #+#    #+#             */
-/*   Updated: 2023/03/14 23:09:50 by hahadiou         ###   ########.fr       */
+/*   Updated: 2023/03/16 23:15:14 by hahadiou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,6 @@ void	start_push_swap(t_stacks *stack)
 	i = -1;
 	while (++i < stack->size_a)
 		arr[i] = stack->a[i];
-	insertion_sort(stack, arr);
+	bubbleSort(stack, arr);
 	solve(stack);
 }
