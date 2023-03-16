@@ -11,7 +11,7 @@
 # **************************************************************************** #
 
 CC		= cc
-FLAGS	= -Wall -Wextra -Werror -IINC -fsanitize=address
+FLAGS	= -Wall -Wextra -Werror -IINC
 
 NAME	= push_swap
 NAMEB	= checker
