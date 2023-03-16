@@ -11,7 +11,7 @@
 # **************************************************************************** #
 
 CC		= cc
-FLAGS	= -Wall -Wextra -Werror -IINC
+FLAGS	= -Wall -Wextra -Werror -IINC -fsanitize=address
 
 NAME	= push_swap
 NAMEB	= checker
@@ -38,6 +38,7 @@ SH_SRCS = init.c \
 			swap.c
 
 SRCSB = checker.c \
+		checker_utils.c
 		
 SRC		= $(addprefix $(MANDATORY_PATH)/,$(SRCS))
 SRC_B	= $(addprefix $(BONUS_PATH)/,$(SRCSB))

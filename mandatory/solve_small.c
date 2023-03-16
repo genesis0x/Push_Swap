@@ -25,7 +25,7 @@ void	sort_small(t_stacks *stack)
 		else
 			while (get_index(stack->a, stack->size_a, i) != 0)
 				rra(stack, true);
-		pb(stack, true);
+		pb(stack, true); 
 		++i;
 	}
 	if (get_index(stack->a, stack->size_a, (stack->size_a - 1)

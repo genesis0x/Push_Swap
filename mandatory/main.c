@@ -16,10 +16,8 @@ void	start_push_swap(t_stacks *stack)
 {
 	int	*arr;
 	int	i;
-	int	check;
 
-	check = is_sorted(stack->a, stack->size_a);
-	if (check == 2 || check == 3)
+	if (is_sorted(stack->a, stack->size_a) == 2)
 		exit(1);
 	arr = (int *)malloc(sizeof(int) * stack->size_a);
 	i = -1;

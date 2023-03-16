@@ -15,6 +15,7 @@
 
 # include "utils.h"
 # include <stdbool.h>
+#include <string.h>
 
 typedef struct s_stacks	t_stacks;
 
@@ -47,4 +48,9 @@ int						get_index(int *stack, int size, int n);
 void					insertion_sort(t_stacks *stack, int *arr);
 void					range_sort(t_stacks *stack, int range, int i);
 
+/* Bonus */
+void					ft_rule(t_stacks *stack, char *rule);
+int						ft_check_rules(char *rule, t_stacks *stack);
+void					checker(t_stacks *stack);
+int 					ft_strcmp(char *s1, char *s2);
 #endif
