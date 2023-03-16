@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
 int	main(int ac, char **av)
 {
@@ -38,8 +37,6 @@ int	main(int ac, char **av)
 		}
 		stack.size_b = 0;
 		read_rules(&stack);
-		for (int i = 0; i < stack.size_a; i++)
-			printf("%d\n", stack.a[i]);
 		if (is_sorted(stack.a, stack.size_a) == 2 && stack.size_b == 0)
 			ft_puts("OK");
 		else

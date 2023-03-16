@@ -12,57 +12,66 @@
 
 #include "push_swap.h"
 
+static int	ft_strncmp(const char *s1, const char *s2, size_t n)
+{
+	size_t			i;
+	unsigned char	*p;
+	unsigned char	*b;
+
+	i = 0;
+	p = (unsigned char *)s1;
+	b = (unsigned char *)s2;
+	while ((p[i] || b[i]) && (i < n))
+	{
+		if (p[i] < b[i])
+			return (-1);
+		if (p[i] > b[i])
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
 void	read_rules(t_stacks *stack)
 {
-    char	rules[RULES_SIZE];
-    int		i;
-    int		prev_i;
+    char	*rules;
 
-    i = 0;
-    while (i < RULES_SIZE)
+	while (1)
     {
-        prev_i = i;
-        i += read(0, rules + i, 1);
-        if (prev_i == i)
-            break ;
-        if (rules[prev_i] == '\n')
-        {
-            rules[prev_i] = 0;
-            if (!exec_rule(stack, rules))
-			{
-				ft_puts("Error");
-				exit (1);
-			}
-            i = 0;
-        }
+    	rules = get_next_line(0);
+		if (!rules)
+			break ;
+        if (!exec_rule(stack, rules))
+		{
+			ft_puts("Error");
+			exit (1);
+		}
     }
-    if (i == RULES_SIZE)
-		exit (1);
 }
 
 int	exec_rule(t_stacks *stack, char *rule)
 {
-	if (strcmp(rule, "sa\n"))
+	if (!ft_strncmp(rule, "sa\n", 3))
 		sa(stack, false);
-	else if (strcmp(rule, "sb\n"))
+	else if (!ft_strncmp(rule, "sb\n", 3))
 		sb(stack, false);
-	else if (strcmp(rule, "ss\n"))
+	else if (!ft_strncmp(rule, "ss\n", 3))
 		ss(stack, false);
-	else if (strcmp(rule, "ra\n"))
+	else if (!ft_strncmp(rule, "ra\n", 3))
 		ra(stack, false);
-	else if (strcmp(rule, "rb\n"))
+	else if (!ft_strncmp(rule, "rb\n", 3))
 		rb(stack, false);
-	else if (strcmp(rule, "rr\n"))
+	else if (!ft_strncmp(rule, "rr\n", 3))
 		rr(stack, false);
-	else if (strcmp(rule, "rra\n"))
+	else if (!ft_strncmp(rule, "rra\n", 4))
 		rra(stack, false);
-	else if (strcmp(rule, "rrb\n"))
+	else if (!ft_strncmp(rule, "rrb\n",  4))
 		rrb(stack, false);
-	else if (strcmp(rule, "rrr\n"))
+	else if (!ft_strncmp(rule, "rrr\n", 4))
 		rrr(stack, false);
-	else if (strcmp(rule, "pa\n"))
+	else if (!ft_strncmp(rule, "pa\n", 3))
 		pa(stack, false);
-	else if (strcmp(rule, "pb\n"))
+	else if (!ft_strncmp(rule, "pb\n", 3))
 		pb(stack, false);
 	else
 		return (0);

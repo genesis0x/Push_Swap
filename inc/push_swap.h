@@ -15,9 +15,7 @@
 
 # include "utils.h"
 # include <stdbool.h>
-#include <string.h>
 
-# define RULES_SIZE 4
 
 typedef struct s_stacks	t_stacks;
 
@@ -52,6 +50,6 @@ void					range_sort(t_stacks *stack, int range, int i);
 
 /* Bonus */
 void	read_rules(t_stacks *stack);
-int	exec_rule(t_stacks *stack, char *rule);
+int		exec_rule(t_stacks *stack, char *rule);
 
 #endif
