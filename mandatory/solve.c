@@ -75,7 +75,7 @@ void	solve(t_stacks *stack)
 		exit(1);
 	}
 	stack->size_b = 0;
-	if (stack->size_a <= 15)
+	if (stack->size_a <= 5)
 		sort_small(stack);
 	else if (stack->size_a <= 100)
 		range_sort(stack, 19, 0);

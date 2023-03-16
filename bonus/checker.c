@@ -12,36 +12,6 @@
 
 #include "push_swap.h"
 #include <stdio.h>
-void	checker(t_stacks *stack)
-{
-	char		*rule;
-
-	while (1)
-	{
-		rule = get_next_line(0);
-		ft_check_rules(rule, stack);
-		//ft_puts(rule);
-		/*if (strcmp(rule, "\n"))
-		{
-			printf("stack_size: %d\n", stack->size_b);
-			for (int i = 0; i < stack->size_a; i++)
-				printf("%d\n", stack->a[i]);
-			if (is_sorted(stack->a, stack->size_a) == 2 && stack->size_b == 0)
-				ft_puts("OK");
-			else
-				ft_puts("K0");
-			free(stack->a);
-			free(stack->b);
-			//exit (1);
-		}
-		if (!ft_check_rules(rule, stack))
-		{
-			free(stack->a);
-			free(stack->b);
-			return ;
-		}*/
-	}
-}
 
 int	main(int ac, char **av)
 {
@@ -67,7 +37,15 @@ int	main(int ac, char **av)
 			exit (1);
 		}
 		stack.size_b = 0;
-		checker(&stack);
+		read_rules(&stack);
+		for (int i = 0; i < stack.size_a; i++)
+			printf("%d\n", stack.a[i]);
+		if (is_sorted(stack.a, stack.size_a) == 2 && stack.size_b == 0)
+			ft_puts("OK");
+		else
+			ft_puts("KO");
 	}
+	free(stack.a);
+	free(stack.b);
 	return (0);
 }

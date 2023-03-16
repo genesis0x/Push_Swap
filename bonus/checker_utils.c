@@ -12,29 +12,35 @@
 
 #include "push_swap.h"
 
-
-int	ft_check_rules(char *rule, t_stacks *stack)
+void	read_rules(t_stacks *stack)
 {
-	if (strcmp(rule, "sa\n") || strcmp(rule, "sb\n")
-		|| strcmp(rule, "ss\n") || strcmp(rule, "ra\n")
-		|| strcmp(rule, "rb\n") || strcmp(rule, "rra\n")
-		|| strcmp(rule, "rrb\n") || strcmp(rule, "rrr\n")
-		|| strcmp(rule, "pa\n") || strcmp(rule, "pb\n")
-		|| strcmp(rule, "rr\n"))
-		return (1);
-	else if (!rule && is_sorted(stack->a, stack->size_a) == 2)
-	{		
-		ft_puts("OK");
-		return (0);
-	}
-	else
-	{
-		ft_puts("Error");
-		return (0);
-	}
+    char	rules[RULES_SIZE];
+    int		i;
+    int		prev_i;
+
+    i = 0;
+    while (i < RULES_SIZE)
+    {
+        prev_i = i;
+        i += read(0, rules + i, 1);
+        if (prev_i == i)
+            break ;
+        if (rules[prev_i] == '\n')
+        {
+            rules[prev_i] = 0;
+            if (!exec_rule(stack, rules))
+			{
+				ft_puts("Error");
+				exit (1);
+			}
+            i = 0;
+        }
+    }
+    if (i == RULES_SIZE)
+		exit (1);
 }
 
-void	ft_rule(t_stacks *stack, char *rule)
+int	exec_rule(t_stacks *stack, char *rule)
 {
 	if (strcmp(rule, "sa\n"))
 		sa(stack, false);
@@ -58,4 +64,7 @@ void	ft_rule(t_stacks *stack, char *rule)
 		pa(stack, false);
 	else if (strcmp(rule, "pb\n"))
 		pb(stack, false);
+	else
+		return (0);
+	return (1);
 }
