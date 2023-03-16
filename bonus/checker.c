@@ -41,8 +41,8 @@ int	main(int ac, char **av)
 			ft_puts("OK");
 		else
 			ft_puts("KO");
+		free(stack.a);
+		free(stack.b);
 	}
-	free(stack.a);
-	free(stack.b);
 	return (0);
 }
