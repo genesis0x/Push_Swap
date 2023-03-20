@@ -6,7 +6,7 @@
 #    By: hahadiou <hahadiou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/03 15:11:30 by hahadiou          #+#    #+#              #
-#    Updated: 2023/03/16 14:27:24 by hahadiou         ###   ########.fr        #
+#    Updated: 2023/03/20 21:54:35 by hahadiou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -98,4 +98,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY:	all clean fclean re 
+.PHONY:	all bonus clean fclean re 
