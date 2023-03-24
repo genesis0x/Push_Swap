@@ -6,12 +6,12 @@
 #    By: hahadiou <hahadiou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/03 15:11:30 by hahadiou          #+#    #+#              #
-#    Updated: 2023/03/20 21:54:35 by hahadiou         ###   ########.fr        #
+#    Updated: 2023/03/24 19:20:36 by hahadiou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC		= cc
-FLAGS	= -Wall -Wextra -Werror -IINC
+FLAGS	= -Wall -Wextra -Werror -IINC -fsanitize=address
 
 NAME	= push_swap
 NAMEB	= checker

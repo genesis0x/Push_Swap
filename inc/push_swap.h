@@ -6,7 +6,7 @@
 /*   By: hahadiou <hahadiou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 22:45:35 by hahadiou          #+#    #+#             */
-/*   Updated: 2023/03/16 23:17:18 by hahadiou         ###   ########.fr       */
+/*   Updated: 2023/03/24 19:26:46 by hahadiou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "utils.h"
 # include <stdbool.h>
+#include <stdio.h>
 
 typedef struct s_stacks	t_stacks;
 
@@ -44,7 +45,7 @@ void					start_push_swap(t_stacks *stack);
 void					solve(t_stacks *stack);
 void					sort_small(t_stacks *stack);
 int						get_index(int *stack, int size, int n);
-void					bubblesort(t_stacks *stack, int *arr);
+void					insertion_sort(t_stacks *stack, int *arr);
 void					range_sort(t_stacks *stack, int range, int i);
 
 /* Bonus */
